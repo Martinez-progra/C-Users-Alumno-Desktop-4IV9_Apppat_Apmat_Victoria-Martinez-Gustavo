@@ -1,3 +1,4 @@
+
 /* Vamos a crear una instancia de un objeto para la entrada de datos estamdar y la salida de datos */
 //Liberar scanner
 import java.util.Scanner;
