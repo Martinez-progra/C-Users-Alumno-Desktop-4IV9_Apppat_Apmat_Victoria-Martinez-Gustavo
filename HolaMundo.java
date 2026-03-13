@@ -11,6 +11,7 @@ class Holamundo{
     //Aqui se define las variables globales
 
     //Aqui definimos los comportamientos
+    //
 
     public static void main(String[] args){
         System.out.println("Hola mundo");
