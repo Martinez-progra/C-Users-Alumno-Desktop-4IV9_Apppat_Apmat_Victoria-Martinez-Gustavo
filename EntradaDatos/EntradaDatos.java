@@ -51,6 +51,7 @@ class EntradaDatos {
 
             //ahora tengo que evaluar la entrada
             switch (opcion) {
+
                 case 1:
                     //Ejercicio 1
                     System.out.println("Ponga su edad, compre ya");
@@ -58,70 +59,83 @@ class EntradaDatos {
                     double precio = 1890.50;
                     double descuento = 0;
                     edad = entrada.nextInt();
+
                     if (edad >= 60) {
                         descuento = 0.25;
                     } else if (edad > 18) {
                         descuento = 0.20;
-
                     } else {
                         descuento = 0.10;
                     }
+
                     double monto = precio - (precio * descuento);
+
                     System.out.println("Su ahorro fue del:" + (descuento * 100) + "% Del maravilloso descuento");
                     System.out.println("El total es:" + monto);
 
                     break;
+
                 case 2:
                     //convertir un numero decimal a binario
                     System.out.println("Ingrese un numero positivo entero que se desee convertir a binario");
+
                     int numbinario;
                     String guardarbinario = "";
+
                     numbinario = entrada.nextInt();
 
                     if (numbinario > 0) {
-                        //realizamos el mod 2
+
                         while (numbinario > 0) {
+
                             if (numbinario % 2 == 0) {
                                 guardarbinario = "0" + guardarbinario;
-
                             } else {
                                 guardarbinario = "1" + guardarbinario;
-
                             }
-                            numbinario = (int) numbinario / 2;
+
+                            numbinario = numbinario / 2;
                         }
 
                     } else if (numbinario == 0) {
 
                         guardarbinario = "0";
+
                     } else {
-                        //aqui no se puede llegale
+
                         guardarbinario = "No se puede convertir ese numero, solo acepta positivos";
                     }
+
                     System.out.println("El numero convertido a binario es: " + guardarbinario);
 
                     break;
                 case 3:
                     //Vamos ahora con este
-                    System.out.println("Ingrese unicamente los grados celcuis a transformar ");
-                    int grados = 0;
-                    grados = entrada.nextInt();
+                    System.out.println("Ingrese unicamente los grados celcius a transformar ");
 
-                    double fahrenheit = (celsius * 9 / 5) + 32;
-                    double kelvin = celsius + 273.15;
+                    int gradoscelcius = 0;
+                    gradoscelcius = entrada.nextInt();
 
-                    System.out.println(celsius + "°C equivale a:");
+                    double fahrenheit = (gradoscelcius * 9 / 5) + 32;
+                    double kelvin = gradoscelcius + 273.15;
+
+                    System.out.println(gradoscelcius + "°C equivale a:");
                     System.out.println(fahrenheit + "°F");
                     System.out.println(kelvin + " K");
 
                     break;
 
                 case 4:
-                    int[] serie = {12, -5, 0, 8, -22, 45, -1, 7};
                     int positivos = 0;
                     int negativos = 0;
 
-                    for (int num : serie) {
+                    System.out.println("PONGA cuantos numeros habra: ");
+                    int n;
+                    n = entrada.nextInt();
+                    for (int i = 1; i <= n; i++) {
+                        System.out.println("Ingrese los numeritos: " + i);
+                        int num;
+                        num = entrada.nextInt();
                         if (num > 0) {
                             positivos++;
                         } else if (num < 0) {
@@ -135,27 +149,37 @@ class EntradaDatos {
                     break;
 
                 case 5:
+
                     System.out.println("Bienvenido a esta hermosa tiendita linda y kawaii");
                     System.out.println("Por favor ingrese cuantos elementos va a comprar");
+
                     int elementosproducto = 0;
                     elementosproducto = entrada.nextInt();
+
+                    float compra = 0;
+
                     if (elementosproducto > 0) {
+
                         for (int i = 1; i <= elementosproducto; i++) {
-                            System.out.println("Ingresa el nombre del producto");
+
+                            System.out.println("Ingresa el nombre del producto: ");
                             String nombreproducto = "";
                             nombreproducto = entrada.next();
+
                             System.out.println("Ingrese el precio");
-                            float precio = 0.0;
-                            precio = entrada.nextFloat();
-                            float resultado;
+                            float precioProducto = 0.0f;
+                            precioProducto = entrada.nextFloat();
+
                             System.out.println("Ingrese la cantidad de producto");
                             int cantidad = 0;
-                            precio = entrada.nextInt();
-                            resultado = precio * cantidad;
-                            float compra = 0;
-                            compra = resultado + compra;
+                            cantidad = entrada.nextInt();
 
+                            float resultado;
+                            resultado = precioProducto * cantidad;
+
+                            compra = resultado + compra;
                         }
+
                         System.out.println("El total de la compra es: " + compra);
 
                     } else {
@@ -165,18 +189,83 @@ class EntradaDatos {
                     break;
 
                 case 6:
-                    double radio = 5;
-                    System.out.println("Círculo - Área: " + (Math.PI * Math.pow(radio, 2)));
-                    System.out.println("Círculo - Perímetro: " + (2 * Math.PI * radio));
 
-                    break;
+                    System.out.println("1. Cuadrado 2. Rectangulo 3. Trianguloisosceles 4. Circulo 5. Pentagono");
+                    System.out.println("Escoga una figura: ");
+                    int figura;
+                    figura = entrada.nextInt();
 
-                default:
+                    switch (figura) {
+                        case 1:
+                            System.out.println("Ingrese el lado: ");
+                            double lado;
+                            lado = entrada.nextDouble();
+                            System.out.println("El area es del cuadrado: " + (lado * lado));
+                            System.out.println("El perimetro es del cuadrado: " + (lado + lado + lado + lado));
+
+                            break;
+
+                        case 2:
+                            System.out.println("Ingrese el ladocorto: ");
+                            System.out.println("Ingrese ladolargo: ");
+                            double ladocorto;
+                            ladocorto = entrada.nextDouble();
+
+                            double ladolargo;
+                            ladolargo = entrada.nextDouble();
+
+                            System.out.println("El area es del rectangulo: " + (ladolargo * 2 + ladocorto * 2));
+                            System.out.println("El perimetro es del rectangulo: " + (ladolargo + ladolargo + ladocorto + ladocorto));
+
+                            break;
+
+                        case 3:
+                            System.out.println("Ingrese la base: ");
+                            System.out.println("Ingrese la altura: ");
+                            double base;
+                            double altura;
+                            base = entrada.nextDouble();
+                            altura = entrada.nextDouble();
+                            System.out.println("El area es del triangulo:" + (base * altura / 2));
+                            System.out.println("El perimetro del triangulo" + (base + altura + altura));
+
+                            break;
+
+                        case 4:
+                            System.out.println("Ingrese el radio: ");
+                            double pi = 3.1415;
+                            double radio;
+                            radio = entrada.nextDouble();
+                            System.out.println("El area es del circulo: " + (pi * radio * radio));
+                            System.out.println("El perimetro del circulo: " + (pi * 2 * radio));
+
+                            break;
+
+                        case 5:
+                            System.out.println("Ingrese el lado del pentagono: ");
+                            System.out.println("Ingrese el apotema: ");
+                            double ladopentagono;
+                            double apotema;
+
+                            apotema = entrada.nextDouble();
+                            ladopentagono = entrada.nextDouble();
+                            double perimetropentagono = 5 * ladopentagono;
+                            System.out.println("Area del pentagono: " + (perimetropentagono * apotema / 2));
+                            System.out.println("El perimetro es: " + (perimetropentagono));
+
+                            break;
+
+                        default:
+                            System.out.println("No esta la figura en la lista, vea bien señor/a");
+                            break;
+                    }
                     break;
             }
+
             System.out.println("Deseas repetir el programa escribe s o S para si");
             letrapararepetir = entrada.next().charAt(0);
-        } while (letrapararepetir != 's' || letrapararepetir == 'S');
+
+        } while (letrapararepetir == 's' || letrapararepetir == 'S');
 
     }
 }
