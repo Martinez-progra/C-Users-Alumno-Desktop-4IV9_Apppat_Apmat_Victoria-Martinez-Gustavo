@@ -267,9 +267,9 @@ class EntradaDatos {
              //quiero dejarles una tabla de multiplicar
                 //deberan de darle formato y titulos a cada columna
                     for(n = 1; n <= 10; n++){
-                    System.out.println(
-                        "| " + n + "  | " + (n*10 + " " + (n*100) +" " + (n*1000)));
+                    System.out.println("| " + n + "  | " + (n*10 + " " + (n*100) +" " + (n*1000)));
                 }
+            break;
 
             case 8:
 
