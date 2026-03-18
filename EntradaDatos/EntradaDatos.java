@@ -10,15 +10,17 @@
 //8. Desarrollar un programa para calcular el factorial con recursividad
 //9. Vamos a hacer dibujitos
 //10. Desarrollar una figura hueca
-//11. Realizar algunas patrones
-//12. Realizar un diamante
-//13. Desarrollar una calculadora basica + - / *
-//14. Salida:
+//11. Realizar un diamante
+//12. Desarrollar una calculadora basica + - / *
+//13. Salida:
 
 import java.util.Scanner;
 
 class EntradaDatos {
 
+    /**
+     * @param args
+     */
     public static void main(String[] args) {
         //aqui van las variables
         int opcion;
@@ -43,8 +45,7 @@ class EntradaDatos {
             System.out.println("10.- ");
             System.out.println("11.- ");
             System.out.println("12.- ");
-            System.out.println("13.- ");
-            System.out.println("14.- Salir ");
+            System.out.println("13.- Salir ");
 
             //entrada de dato
             opcion = entrada.nextInt();
@@ -259,9 +260,57 @@ class EntradaDatos {
                             System.out.println("No esta la figura en la lista, vea bien señor/a");
                             break;
                     }
-                    break;
+                    break;                   
             }
 
+            case 7:
+             //quiero dejarles una tabla de multiplicar
+                //deberan de darle formato y titulos a cada columna
+                    for(n = 1; n <= 10; n++){
+                    System.out.println(
+                        "| " + n + "  | " + (n*10 + " " + (n*100) +" " + (n*1000)));
+                }
+
+            case 8:
+
+            break;
+
+            case 9:
+            //vamos a realizar un cuadrado magico
+                System.out.println("Vamos a realizar el dibujo de un cuadrado magico");
+                System.out.println("Ingrese el tamaño del cuadrado");
+                int n1= entrada.nextInt();
+
+                if(n1 >= 1 && n1 <=20){
+                    //se imprime
+                    for(int i = 1; i <= n1; i++){
+                        //recorro las columnas
+                        //System.out.print(" 1 ");
+                        for(int j = 1; j <= n1; j++){
+                            System.out.print(" * ");
+
+                        }
+                        System.out.println("");
+                    }
+
+                }else{
+                    System.out.println("Por favor solo ingrese valores entre el 1 y el 20");
+                }
+                break;
+
+            break;
+
+            case 10:
+
+            break;
+
+            case 11:
+
+            break;
+
+            case 12:
+
+            break;
             System.out.println("Deseas repetir el programa escribe s o S para si");
             letrapararepetir = entrada.next().charAt(0);
 
