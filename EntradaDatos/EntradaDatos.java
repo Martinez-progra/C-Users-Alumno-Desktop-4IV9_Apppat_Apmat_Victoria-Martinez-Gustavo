@@ -7,7 +7,7 @@
 //5. Desarrollar una tiendita para agregar precios y productos
 //6. Desarrollar un programa para calcular el area y perimetro de 5 diferentes figuras
 //7. DESARROLLAR UNA tabla
-//8. Desarrollar un programa para calcular el factorial con recursividad
+//8. Desarrollar un programa para calcular el factorial
 //9. Vamos a hacer dibujitos
 //10. Desarrollar una figura hueca
 //11. Realizar un diamante
@@ -197,30 +197,26 @@ class EntradaDatos {
                     figura = entrada.nextInt();
 
                     switch (figura) {
-                        case 1:
+                        case 1: {
                             System.out.println("Ingrese el lado: ");
                             double lado;
                             lado = entrada.nextDouble();
                             System.out.println("El area es del cuadrado: " + (lado * lado));
                             System.out.println("El perimetro es del cuadrado: " + (lado + lado + lado + lado));
-
                             break;
-
-                        case 2:
+                        }
+                        case 2: {
                             System.out.println("Ingrese el ladocorto: ");
                             System.out.println("Ingrese ladolargo: ");
                             double ladocorto;
                             ladocorto = entrada.nextDouble();
-
                             double ladolargo;
                             ladolargo = entrada.nextDouble();
-
                             System.out.println("El area es del rectangulo: " + (ladolargo * 2 + ladocorto * 2));
                             System.out.println("El perimetro es del rectangulo: " + (ladolargo + ladolargo + ladocorto + ladocorto));
-
                             break;
-
-                        case 3:
+                        }
+                        case 3: {
                             System.out.println("Ingrese la base: ");
                             System.out.println("Ingrese la altura: ");
                             double base;
@@ -229,39 +225,35 @@ class EntradaDatos {
                             altura = entrada.nextDouble();
                             System.out.println("El area es del triangulo:" + (base * altura / 2));
                             System.out.println("El perimetro del triangulo" + (base + altura + altura));
-
                             break;
-
-                        case 4:
+                        }
+                        case 4: {
                             System.out.println("Ingrese el radio: ");
                             double pi = 3.1415;
                             double radio;
                             radio = entrada.nextDouble();
                             System.out.println("El area es del circulo: " + (pi * radio * radio));
                             System.out.println("El perimetro del circulo: " + (pi * 2 * radio));
-
                             break;
-
+                        }
                         case 5:
                             System.out.println("Ingrese el lado del pentagono: ");
                             System.out.println("Ingrese el apotema: ");
                             double ladopentagono;
                             double apotema;
-
                             apotema = entrada.nextDouble();
                             ladopentagono = entrada.nextDouble();
                             double perimetropentagono = 5 * ladopentagono;
                             System.out.println("Area del pentagono: " + (perimetropentagono * apotema / 2));
                             System.out.println("El perimetro es: " + (perimetropentagono));
-
                             break;
-
                         default:
-                            System.out.println("No esta la figura en la lista, vea bien señor/a");
-                            break;
+                        System.out.println("No se encuentra la figura, lea bien señor/a");
+                        break;
                     }
-                    break;                   
-            }
+                    break;
+
+            
 
             case 7:
              //quiero dejarles una tabla de multiplicar
@@ -272,7 +264,22 @@ class EntradaDatos {
             break;
 
             case 8:
+            System.out.println("Ingrese un numero (max del 1 al 30 no te pases de rosca: ");
+            int factorial;
+            factorial = entrada.nextInt();
+            int resultado = 1;
+            if(factorial >= 2 && factorial <= 30){
+                for(int i = 1; i <= factorial; i++){
+                    resultado  *= i;
 
+                }
+                System.out.println("El factorial es: " + factorial  + "es: " +  resultado);
+            }else if (factorial == 1){
+                System.out.println("El factorial es 1 ");
+
+            }else{
+                System.out.println("Porfavor numeros del 1 al 10");
+            }
             break;
 
             case 9:
@@ -298,23 +305,128 @@ class EntradaDatos {
                 }
                 break;
 
-            break;
 
             case 10:
+            //vamos a realizar un cuadrado magico ahora con un hueco
+                System.out.println("Vamos a realizar el dibujo de un cuadrado magico hueco");
+                System.out.println("Ingrese el tamaño del cuadrado");
+                int n2;
+                n2 = entrada.nextInt();
 
-            break;
 
-            case 11:
+                if(n2 >= 1 && n2 <=20){
+                    
+                    for(int i = 1; i <= n2; i++){
+                        for(int j = 1; j <= n2; j++){
+                         if (i == 1 || i == n2 || j == 1 || j == n2) {
+                            System.out.print(" * ");
+                        }else{
+                        System.out.print("  ");
+                    }
+                    
+                    }
+                    System.out.println(" ");
+                    }
+                }else{
+                    System.out.println("Por favor solo ingrese valores entre el 1 y el 20");
+                }
+                break;
 
-            break;
+                case 11:
+                System.out.println("Ahora va un diamantito");
+                System.out.println("Ingrese el tamaño del diamante: ");
+                int diamante;
+                diamante = entrada.nextInt();
+                if (diamante >= 1 && diamante <= 20) {
+    
+    for (int i = 1; i <= diamante; i++) {
+        for (int j = 1; j <= diamante - i; j++) {
+            System.out.print(" ");
+        }
+        for (int k = 1; k <= (2 * i - 1); k++) {
+            System.out.print("*");
+        }
+        System.out.println();
+    }
 
-            case 12:
+    
+    for (int i = diamante - 1; i >= 1; i--) {
+        
+        for (int j = 1; j <= diamante - i; j++) {
+            System.out.print(" ");
+        }
+        
+        for (int k = 1; k <= (2 * i - 1); k++) {
+            System.out.print("*");
+        }
+        System.out.println();
+    }
 
-            break;
-            System.out.println("Deseas repetir el programa escribe s o S para si");
-            letrapararepetir = entrada.next().charAt(0);
+} else {
+    System.out.println("Por favor ingrese un valor entre 1 y 20");
+}
+                break;
 
-        } while (letrapararepetir == 's' || letrapararepetir == 'S');
+                case 12:
+                System.out.println("Hola soy la calculadora pepito");
+                System.out.println("Opciones:");
+                System.out.println("1. suma 2. resta 3. multiplicacion 4. division");
+                System.out.println("Selecciona una opcion:");
+
+                int operacion1;
+                operacion1 = entrada.nextInt();
+
+                System.out.println("Seleccione cuantos numeros: ");
+
+                int seleccion;
+                seleccion = entrada.nextInt();
+
+                if(opcion > 0){
+                    System.out.println("Ingresa el primer numero: ");
+                double respuesta;
+                respuesta = entrada.nextDouble();
+
+                for(int i = 2; i <= operacion1; i++){
+                System.out.println("Ingrese el siguiente valor: " + i);
+                double numsiguiente;
+                numsiguiente = entrada.nextDouble();
+                switch (operacion1){
+                    case 1:
+                    break;
+                    case 2:
+                    respuesta -= numsiguiente;
+                    break;
+                    case 3:
+                    respuesta *= numsiguiente;
+                    break;
+                    case 4: 
+                    if (numsiguiente != 0) {
+                        respuesta /= numsiguiente;
+                    } else {
+                        System.out.println("Error: No se puede dividir por cero.");
+                    }
+                    break;
+                default:
+                    System.out.println("Opción de operación no válida.");
+                    i = seleccion + 1; 
+                    break;
+            }
+        }
+        
+       
+        System.out.println("El resultado final es: " + respuesta);
+        
+        
+    } else {
+        System.out.println("Error: La cantidad debe ser mayor a 0.");
+    }
+    break; 
+default:
+                break;
+        }
+        System.out.println("Deseas repetir el programa escribe s o S para si");
+        letrapararepetir = entrada.next().charAt(0);  
+        }while(letrapararepetir != 's' || letrapararepetir == 'S');    
 
     }
 }
