@@ -319,13 +319,13 @@ class EntradaDatos {
                     for(int i = 1; i <= n2; i++){
                         for(int j = 1; j <= n2; j++){
                          if (i == 1 || i == n2 || j == 1 || j == n2) {
-                            System.out.print(" * ");
+                            System.out.print(" *");
                         }else{
                         System.out.print("  ");
                     }
                     
                     }
-                    System.out.println(" ");
+                    System.out.println("");
                     }
                 }else{
                     System.out.println("Por favor solo ingrese valores entre el 1 y el 20");
