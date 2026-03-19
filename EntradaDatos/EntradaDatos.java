@@ -13,6 +13,7 @@
 //11. Realizar un diamante
 //12. Desarrollar una calculadora basica + - / *
 //13. Salida:
+// Todos los programas funcionan
 
 import java.util.Scanner;
 
