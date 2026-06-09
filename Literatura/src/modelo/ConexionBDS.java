@@ -14,7 +14,7 @@ import java.sql.SQLException;
  */
 public class ConexionBDS {
  private static final String URL = 
-            "jdbc:mysql://localhost:3306/literatura_sql?serverTimezone=America/Mexico_City";
+            "jdbc:mysql://localhost:3306/literatura?serverTimezone=America/Mexico_City";
     private static final String USUARIO = "root";
     private static final String PASSWORD = "Gus2810.";
     

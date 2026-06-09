@@ -14,7 +14,7 @@ import java.sql.Date;
 
 /**
  * Modelo que representa la tabla 'editoriales'.
- * fecha_editorial usa java.sql.Date porque la columna en BD es DATE.
+ 
  */
 public class Editorial {
 

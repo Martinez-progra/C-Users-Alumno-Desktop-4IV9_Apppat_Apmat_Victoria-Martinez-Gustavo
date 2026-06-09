@@ -3,10 +3,12 @@ package vista1;
 import modelo.Autor;
 import vista1.ProductoDAO;
 import vista.LiteraturaVista;
+import modelo.ConexionBDS;
 
 import javax.swing.table.DefaultTableModel;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.logging.Level;
@@ -35,9 +37,9 @@ public class ProductoControlador {
         vista.getBtnBuscar()     .addActionListener(e -> buscar());
         vista.getBtnLimpiar()    .addActionListener(e -> vista.limpiarFormulario());
 
-        vista.getTablaProductos().addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
+        vista.getTablaLiteratura().addMouseListener(new java.awt.event.MouseAdapter() {
+            
+            public void mouseClicked(java.awt.event.MouseEvent e) {
                 cargarSeleccionado();
             }
         });
@@ -67,7 +69,7 @@ public class ProductoControlador {
     }
 
     private void cargarSeleccionado() {
-        int fila = vista.getTablaProductos().getSelectedRow();
+        int fila = vista.getTablaLiteratura().getSelectedRow();
         if (fila < 0) return;
 
         DefaultTableModel modelo = vista.getModeloTabla();
@@ -188,10 +190,7 @@ public class ProductoControlador {
             a.setNombre(vista.getTxtNombre().getText().trim());
             a.setNacionalidad(vista.getTxtNacionalidad().getText().trim()); 
             
-            String fechaStr = vista.getTxtFechaNacimiento().getText().trim();
-            if (!fechaStr.isEmpty()) {
-                a.setFechaNacimiento(java.sql.Date.valueOf(fechaStr));
-            }
+            
             
             a.setMuerte(vista.getTxtMuerte().getText().trim());
             return a;

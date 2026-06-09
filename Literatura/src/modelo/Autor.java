@@ -17,7 +17,7 @@ public class Autor  {
     private int id_autor;
     private String nombre;
     private String nacionalidad;
-    private Date fechanacimiento;
+    private String fechanacimiento;
     private String muerte;
     
     
@@ -27,13 +27,13 @@ public class Autor  {
         this.id_autor = (int) 0.0;
         this.nombre = "";
         this.nacionalidad = "";
-        this.fechanacimiento = null;
+        this.fechanacimiento = "";
         this.muerte = "";
     }
     
     
 
-    public Autor(int id_autor, String nombre, String nacionalidad, Date fechaNacimiento, String muerte) {
+    public Autor(int id_autor, String nombre, String nacionalidad, String fechaNacimiento, String muerte) {
         this.id_autor = id_autor;
         this.nombre = nombre;
         this.nacionalidad = nacionalidad;
@@ -53,7 +53,7 @@ public class Autor  {
         return nacionalidad;
     }
 
-    public Date getFechaNacimiento() {
+    public String getFechaNacimiento() {
         return fechanacimiento;
     }
 
@@ -73,7 +73,7 @@ public class Autor  {
         this.nacionalidad = nacionalidad;
     }
 
-    public void setFechaNacimiento(Date fechaNacimiento) {
+    public void setFechaNacimiento(String fechaNacimiento) {
         this.fechanacimiento = fechaNacimiento;
     }
 

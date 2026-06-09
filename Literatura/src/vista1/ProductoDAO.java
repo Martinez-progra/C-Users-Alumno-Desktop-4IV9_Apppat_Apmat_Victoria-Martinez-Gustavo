@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import modelo.Autor;
+import modelo.ConexionBDS;
 import modelo.Editorial;
 import modelo.Genero;
 
@@ -63,7 +64,7 @@ public class ProductoDAO {
                     rs.getInt("id_autor"), 
                     rs.getString("nombre"), 
                     rs.getString("nacionalidad"), 
-                    rs.getDate("fecha_nacimiento"), 
+                    rs.getString("fecha_nacimiento"), 
                     rs.getString("muerte")
                 ));
             }
@@ -83,7 +84,7 @@ public class ProductoDAO {
                         rs.getInt("id_autor"),
                         rs.getString("nombre"),
                         rs.getString("nacionalidad"),
-                        rs.getDate("fecha_nacimiento"),
+                        rs.getString("fecha_nacimiento"),
                         rs.getString("muerte")
                     );
                 }
@@ -107,7 +108,7 @@ public class ProductoDAO {
             Autor a = (Autor) entidad;
             ps.setString(1, a.getNombre());
             ps.setString(2, a.getNacionalidad());
-            ps.setDate(3, a.getFechaNacimiento()); 
+            ps.setString(3, a.getFechaNacimiento()); 
             ps.setString(4, a.getMuerte());
         } else if (entidad instanceof Editorial) {
             Editorial e = (Editorial) entidad;

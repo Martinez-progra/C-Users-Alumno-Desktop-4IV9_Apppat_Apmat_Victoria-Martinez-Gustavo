@@ -25,9 +25,9 @@ import javax.swing.ListSelectionModel;
 import javax.swing.table.DefaultTableModel;
 
 /**
- * CAPA: VISTA — LiteraturaVista
- * Sistema adaptado para la base de datos de Literatura (Autores, Editoriales, Géneros)
- * @author Gustavo (Modificado para Base de Datos Literatura)
+
+ 
+ * @author Gustavo 
  */
 public class LiteraturaVista extends JFrame {
 
@@ -35,23 +35,23 @@ public class LiteraturaVista extends JFrame {
     private JTable tablaLiteratura;
     private DefaultTableModel modeloTabla;
 
-    // --- Campos comunes (Presentes en las 3 tablas) ---
+    
     private JTextField txtId, txtNombre;
     private JComboBox<String> cmbTipoEntidad;
 
-    // --- Campos de la tabla: AUTORES ---
+   
     private JTextField txtNacionalidad, txtFechaNacimiento, txtMuerte;
 
-    // --- Campos de la tabla: EDITORIALES ---
+   
     private JTextField txtSitioWeb, txtFechaEditorial, txtPais;
 
-    // --- Campos de la tabla: GENEROS ---
+    
     private JTextField txtTipoGenero, txtSubgenero, txtCreacion;
 
-    // --- Botones CRUD ---
+    
     private JButton btnAgregar, btnActualizar, btnEliminar, btnBuscar, btnLimpiar;
 
-    // --- Panel dinámico con CardLayout ---
+    
     private JPanel panelCamposEspecificos;
     private CardLayout cardLayout;
 
@@ -67,7 +67,7 @@ public class LiteraturaVista extends JFrame {
     private void inicializarComponentes() {
         setLayout(new BorderLayout(10, 10));
 
-        // --- NORTH: Título del Sistema ---
+      
         JPanel panelTitulo = new JPanel();
         panelTitulo.setBackground(new Color(41, 128, 185)); // Azul elegante para Literatura
         JLabel lblTitulo = new JLabel("Sistema de Gestión de Literatura — Práctica 3 (MVC)");
@@ -76,8 +76,7 @@ public class LiteraturaVista extends JFrame {
         panelTitulo.add(lblTitulo);
         add(panelTitulo, BorderLayout.NORTH);
 
-        // --- CENTER: Tabla de Datos ---
-        // Las columnas cambian de significado conceptual según la entidad, o el controlador puede reconfigurarlas
+        
         modeloTabla = new DefaultTableModel(
             new String[]{"ID", "Nombre", "Dato Específico 1", "Dato Específico 2", "Dato Específico 3", "Entidad"}, 0
         ) {
@@ -95,7 +94,7 @@ public class LiteraturaVista extends JFrame {
         scrollTabla.setPreferredSize(new Dimension(900, 250));
         add(scrollTabla, BorderLayout.CENTER);
 
-        // --- SOUTH: Formulario y Botonera ---
+        
         JPanel panelInferior = new JPanel(new BorderLayout(5, 5));
         panelInferior.setBorder(BorderFactory.createEmptyBorder(5, 10, 10, 10));
         panelInferior.add(crearPanelFormulario(), BorderLayout.CENTER);
@@ -107,7 +106,7 @@ public class LiteraturaVista extends JFrame {
         JPanel panel = new JPanel(new BorderLayout(5, 5));
         panel.setBorder(BorderFactory.createTitledBorder("Datos de la Entidad Literaria"));
 
-        // Campos comunes a todas las tablas (ID, Nombre y Tipo)
+        
         JPanel panelComun = new JPanel(new GridLayout(1, 6, 5, 5));
 
         panelComun.add(new JLabel("Gestionar:"));
@@ -124,12 +123,12 @@ public class LiteraturaVista extends JFrame {
 
         panel.add(panelComun, BorderLayout.NORTH);
 
-        // Inicialización de Paneles específicos con CardLayout
+        
         cardLayout = new CardLayout();
         panelCamposEspecificos = new JPanel(cardLayout);
         panelCamposEspecificos.setBorder(BorderFactory.createTitledBorder("Atributos Específicos de la Tabla"));
 
-        // CARD 1: Autores
+        
         JPanel panelAutor = new JPanel(new GridLayout(1, 6, 5, 5));
         panelAutor.add(new JLabel("Nacionalidad:"));
         txtNacionalidad = new JTextField();
@@ -142,7 +141,7 @@ public class LiteraturaVista extends JFrame {
         panelAutor.add(txtMuerte);
         panelCamposEspecificos.add(panelAutor, "AUTOR");
 
-        // CARD 2: Editoriales
+        
         JPanel panelEditorial = new JPanel(new GridLayout(1, 6, 5, 5));
         panelEditorial.add(new JLabel("Sitio Web:"));
         txtSitioWeb = new JTextField();
@@ -155,7 +154,7 @@ public class LiteraturaVista extends JFrame {
         panelEditorial.add(txtPais);
         panelCamposEspecificos.add(panelEditorial, "EDITORIAL");
 
-        // CARD 3: Géneros
+       
         JPanel panelGenero = new JPanel(new GridLayout(1, 6, 5, 5));
         panelGenero.add(new JLabel("Tipo Género:"));
         txtTipoGenero = new JTextField();
@@ -181,7 +180,7 @@ public class LiteraturaVista extends JFrame {
         btnBuscar = new JButton("Buscar por ID");
         btnLimpiar = new JButton("Limpiar");
 
-        // Paleta de colores visuales
+       
         Color colorBtn = new Color(41, 128, 185);
         Color colorBtnEliminar = new Color(192, 57, 43);
         
@@ -207,47 +206,43 @@ public class LiteraturaVista extends JFrame {
         return panel;
     }
 
-    // ========================================================================
-    // GETTERS — Acceso para el Controlador de Literatura
-    // ========================================================================
+  
     
     public JTable getTablaLiteratura() { return tablaLiteratura; }
     public DefaultTableModel getModeloTabla() { return modeloTabla; }
 
-    // Componentes Comunes
+    
     public JTextField getTxtId() { return txtId; }
     public JTextField getTxtNombre() { return txtNombre; }
     public JComboBox<String> getCmbTipoEntidad() { return cmbTipoEntidad; }
 
-    // Getters Autores
+    
     public JTextField getTxtNacionalidad() { return txtNacionalidad; }
     public JTextField getTxtFechaNacimiento() { return txtFechaNacimiento; }
     public JTextField getTxtMuerte() { return txtMuerte; }
 
-    // Getters Editoriales
+   
     public JTextField getTxtSitioWeb() { return txtSitioWeb; }
     public JTextField getTxtFechaEditorial() { return txtFechaEditorial; }
     public JTextField getTxtPais() { return txtPais; }
 
-    // Getters Generos
+   
     public JTextField getTxtTipoGenero() { return txtTipoGenero; }
     public JTextField getTxtSubgenero() { return txtSubgenero; }
     public JTextField getTxtCreacion() { return txtCreacion; }
 
-    // Getters Botones
+   
     public JButton getBtnAgregar() { return btnAgregar; }
     public JButton getBtnActualizar() { return btnActualizar; }
     public JButton getBtnEliminar() { return btnEliminar; }
     public JButton getBtnBuscar() { return btnBuscar; }
     public JButton getBtnLimpiar() { return btnLimpiar; }
 
-    // CardLayout mecánico para alternar vistas
+    
     public CardLayout getCardLayout() { return cardLayout; }
     public JPanel getPanelCamposEspecificos() { return panelCamposEspecificos; }
 
-    // ========================================================================
-    // MÉTODOS AUXILIARES DE INTERFAZ
-    // ========================================================================
+    
 
     public void mostrarMensaje(String mensaje) {
         JOptionPane.showMessageDialog(this, mensaje);
@@ -266,17 +261,17 @@ public class LiteraturaVista extends JFrame {
         txtId.setText("");
         txtNombre.setText("");
         
-        // Limpieza Autores
+       
         txtNacionalidad.setText("");
         txtFechaNacimiento.setText("");
         txtMuerte.setText("");
         
-        // Limpieza Editoriales
+      
         txtSitioWeb.setText("");
         txtFechaEditorial.setText("");
         txtPais.setText("");
         
-        // Limpieza Géneros
+        
         txtTipoGenero.setText("");
         txtSubgenero.setText("");
         txtCreacion.setText("");
@@ -285,6 +280,6 @@ public class LiteraturaVista extends JFrame {
     }
 
     public Object getTablaProductos() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+    throw new UnsupportedOperationException("Not supported yet."); 
+}
 }

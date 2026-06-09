@@ -12,22 +12,25 @@ import vista1.ProductoControlador;
 
 
 public class Literatura {
-public static void main(String[] args) throws Exception {
-        // TODO code application logic here
+    public static void main(String[] args) throws Exception {
+        
         if(!ConexionBDS.probarConexion()){
             JOptionPane.showMessageDialog(
                     null, "No se pudo conectar a la bd");
             return;
         }
         
-        ProductoDAO vista1 = new ProductoDAO();
         
+        ProductoDAO dao = new ProductoDAO(); 
+        
+       
         LiteraturaVista vista = new LiteraturaVista();
         
         
+        new ProductoControlador(dao, vista);
+        
+        
         vista.setVisible(true);
-        
-        
     }
 }
 
